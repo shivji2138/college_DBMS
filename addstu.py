@@ -47,15 +47,6 @@ def add_attendance():
         messagebox.showinfo("Success", "Student added successfully")
     except mysql.connector.Error as err:
         messagebox.showerror("Error", f"Error: {err}")
-
-def add_marks():
-    stuid = stuid_entry.get()
-    try:
-        mycursor.execute('INSERT INTO students_marks (student_id) VALUES (%s)',(stuid,))
-        mydb.commit()
-        messagebox.showinfo("Success", "Student added successfully")
-    except mysql.connector.Error as err:
-        messagebox.showerror("Error", f"Error: {err}")
         
 # Create the main window
 window = tk.Tk()
@@ -99,9 +90,6 @@ add_button.grid(row=9, column=0, columnspan=2, pady=10)
 
 attendance_button = tk.Button(window, text='Create Attendance', command=add_attendance, bg='blue',fg='white')
 attendance_button.grid(row=10, column=0, columnspan=2, pady=10)
-
-marks_button = tk.Button(window, text='Create Marks', command=add_marks, bg='skyblue', fg='white')
-marks_button.grid(row=11, column=0,columnspan=2, pady=10)
 
 # Run the application
 window.mainloop()
